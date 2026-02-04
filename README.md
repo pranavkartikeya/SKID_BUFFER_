@@ -6,9 +6,13 @@ This repository implements a Skid Buffer a specialized pipeline stage that decou
 Key Architectural Features
 
 Timing Isolation: The input `ready` signal is locally generated from the internal state, breaking the combinational chain from the downstream receiver.
+
 Zero-Latency Pass-Through: When the buffer is empty, data is presented to the output interface on the very next clock edge.
+
 Full Throughput: Supports a sustained data transfer rate of one word per clock cycle ( efficiency).
+
 Backpressure Handling: Features a secondary "Skid Register" to capture incoming data when a downstream stall occurs, preventing data loss.
+
 AXI-Style Handshaking: Utilizes standard `valid`/`ready` semantics compatible with AMBA AXI4-Stream and AHB protocols.
 
 How It Works
